@@ -8,8 +8,8 @@ type childType = {
     children : React.ReactNode
 }
 
-const ColorTransitionComponent = ({ children}:childType) => {
-    const colors = ['text-[#FE3489]', 'text-[#BE1347]', 'text-[#7EC025]', 'text-[#DDA2F2]', 'text-[#2BAD2F]'];
+const Header = (props: Props) => {
+  const colors = ['text-[#FE3489]', 'text-[#BE1347]', 'text-[#7EC025]', 'text-[#DDA2F2]', 'text-[#2BAD2F]'];
     const [currentColorIndex, setCurrentColorIndex] = useState(0);
   
     useEffect(() => {
@@ -19,20 +19,12 @@ const ColorTransitionComponent = ({ children}:childType) => {
   
       return () => clearInterval(intervalId);
     }, []);
-  
-    return (
-      <div className={`transition-colors duration-1000 ease-in-out ${colors[currentColorIndex]}`}>
-        {children}
-      </div>
-    );
-  };
 
-const Header = (props: Props) => {
   return (
     <div className='flex justify-center py-4 -mb-28'>
-        <ColorTransitionComponent>
-        <FizziLogo className='h-20 z-10 cursor-pointer' />
-        </ColorTransitionComponent>
+
+      <FizziLogo className={`z-10 h-20 cursor-pointer transition-colors duration-1000 ease-in-out ${colors[currentColorIndex]}`} />
+
     </div>
   )
 }

@@ -14,7 +14,7 @@ export function FizziLogo(props: SVGProps<SVGSVGElement>) {
       aria-labelledby="fizzi-logo-title"
     >
       <title id="fizzi-logo-title">Fizzi</title>
-      <g clipPath="url(#clip0_342_66)">
+      <g clipPath="url(#clip0_342_66) ">
         <mask
           id="mask0_342_66"
           style={{ maskType: "alpha" }}
