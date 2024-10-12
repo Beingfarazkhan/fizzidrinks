@@ -4,6 +4,7 @@ import { repositoryName } from "@/prismicio";
 import "./app.css"
 import Header from "@/components/Header";
 import ViewCanvas from "@/components/ViewCanvas";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 const alpino = localFont(
   {
@@ -22,11 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={alpino.variable}>
       <body className="overflow-x-hidden bg-yellow-300">
+        <SmoothScrolling>
         <Header />
         <main>
           {children}
           <ViewCanvas />
         </main>
+        </SmoothScrolling>
       </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>

@@ -1,11 +1,16 @@
 "use client"
 
 import { Canvas } from "@react-three/fiber"
+import { Center, Environment, Float, Text3D, View } from "@react-three/drei"
+import dynamic from "next/dynamic"
+import { Suspense } from "react"
+
+const Loader = dynamic(() => import("@react-three/drei").then((mod) => mod.Loader), { ssr: false })
 
 type Props = {}
 
 const ViewCanvas = (props: Props) => {
-    return (
+    return (<>
         <Canvas style={{
             position: "fixed",
             top: 0,
@@ -22,13 +27,13 @@ const ViewCanvas = (props: Props) => {
                 fov: 30
             }}
         >
-            <mesh rotation={[0.5, 0.5, 0]} position={[1, 0, 0]}>
-                <boxGeometry />
-                <meshStandardMaterial color={"hotpink"} />
-            </mesh>
-            <ambientLight intensity={2} />
-            <spotLight intensity={3} position={[1, 1, 1]} />
+            <Suspense fallback={null}>
+
+                <View.Port />
+            </Suspense>
         </Canvas>
+        <Loader />
+    </>
     )
 }
 
