@@ -5,6 +5,7 @@ import "./app.css"
 import Header from "@/components/Header";
 import ViewCanvas from "@/components/ViewCanvas";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import Footer from "@/components/Footer";
 
 const alpino = localFont(
   {
@@ -29,6 +30,7 @@ export default function RootLayout({
           {children}
           <ViewCanvas />
         </main>
+          <Footer />
         </SmoothScrolling>
       </body>
       <PrismicPreview repositoryName={repositoryName} />
